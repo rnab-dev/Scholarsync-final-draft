@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard – ScholarSync</title>
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-universal" id="navbar">
+        <div class="container nav-content-universal">
+          <div class="nav-brand-section">
+            <a href="index.html" class="nav-brand-link">
+              <img src="assets/logo.svg" alt="ScholarSync Logo" class="logo">
+              <span class="brand">ScholarSync</span>
+            </a>
+          </div>
+      
+          <div class="nav-center-section">
+            <div class="nav-items-wrapper">
+              <div class="nav-item-pill">
+                <a href="dashboard.html" class="nav-pill-link" data-page="dashboard">
+                  <span>Dashboard</span>
+                </a>
+              </div>
+      
+              <div class="nav-item-pill">
+                <button class="nav-pill-btn" id="featuresDropdown">
+                  <span>Features</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" id="featuresMenu">
+                  <div class="dropdown-grid">
+                    <a href="notes.html" class="dropdown-item" data-page="notes">
+                      <div class="dropdown-icon blue">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                          <path d="M14 2v6h6M16 13H8m8 4H8m2-8H8"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Notes</strong>
+                        <span>Organize study notes</span>
+                      </div>
+                    </a>
+                    <a href="flashcards.html" class="dropdown-item" data-page="flashcards">
+                      <div class="dropdown-icon purple">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                          <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Flashcards</strong>
+                        <span>Study with cards</span>
+                      </div>
+                    </a>
+                    <a href="planner.html" class="dropdown-item" data-page="planner">
+                      <div class="dropdown-icon green">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                          <path d="M16 2v4M8 2v4M3 10h18"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Planner</strong>
+                        <span>Track tasks</span>
+                      </div>
+                    </a>
+                    <a href="grades.html" class="dropdown-item" data-page="grades">
+                      <div class="dropdown-icon orange">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Grades</strong>
+                        <span>Calculate GPA</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="nav-item-pill">
+                <button class="nav-pill-btn" id="toolsDropdown">
+                  <span>Tools</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" id="toolsMenu">
+                  <div class="dropdown-grid">
+                    <a href="tools.html" class="dropdown-item" data-page="tools">
+                      <div class="dropdown-icon cyan">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                          <circle cx="8.5" cy="8.5" r="1.5"/>
+                          <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>File Tools</strong>
+                        <span>Convert files</span>
+                      </div>
+                    </a>
+                    <a href="tutorials.html" class="dropdown-item" data-page="tutorials">
+                      <div class="dropdown-icon red">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <circle cx="12" cy="12" r="10"/>
+                          <polygon points="10 8 16 12 10 16 10 8"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Tutorials</strong>
+                        <span>Video lessons</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="nav-item-pill">
+                <a href="about.html" class="nav-pill-link" data-page="about">
+                  <span>About</span>
+                </a>
+              </div>
+            </div>
+          </div>
+      
+          <div class="nav-actions-section">
+            <button class="icon-btn-glass theme-toggle" id="themeToggle" aria-label="Toggle theme">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>
+              </svg>
+            </button>
+          </div>
+      
+          <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+      
+
+  <main class="dashboard-page">
+    <div class="container">
+      <div class="page-header">
+        <div>
+          <h1>Dashboard</h1>
+          <p class="page-subtitle" id="greetingText">Good morning! Ready to be productive?</p>
+        </div>
+        <button class="btn btn-primary" id="pomodoroBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          Start Study Session
+        </button>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="dashboard-col-main">
+          <div class="glass-card stat-cards-row">
+            <div class="stat-card">
+              <div class="stat-icon blue">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                  <path d="M14 2v6h6M16 13H8m8 4H8m2-8H8"/>
+                </svg>
+              </div>
+              <div class="stat-info">
+                <h3 id="notesCount">0</h3>
+                <p>Total Notes</p>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon green">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 11 12 14 22 4"/>
+                  <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+                </svg>
+              </div>
+              <div class="stat-info">
+                <h3 id="tasksCompletedCount">0</h3>
+                <p>Tasks Completed</p>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon purple">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                  <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                </svg>
+              </div>
+              <div class="stat-info">
+                <h3 id="flashcardsCount">0</h3>
+                <p>Flashcards</p>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon orange">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div class="stat-info">
+                <h3 id="studyTimeCount">0h</h3>
+                <p>Study Time Today</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <h3>Today's Tasks</h3>
+            <div id="todayTasks" class="today-tasks-list"></div>
+          </div>
+
+          <div class="glass-card">
+            <h3>Recent Notes</h3>
+            <div id="recentNotes" class="recent-notes-list"></div>
+          </div>
+        </div>
+
+        <div class="dashboard-col-side">
+          <div class="glass-card quote-card">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" class="quote-icon">
+              <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+            </svg>
+            <p class="quote-text" id="quoteText">Loading...</p>
+            <p class="quote-author" id="quoteAuthor"></p>
+          </div>
+
+          <div class="glass-card">
+            <h3>Quick Actions</h3>
+            <div class="quick-actions">
+              <a href="notes.html" class="quick-action-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                  <path d="M14 2v6h6"/>
+                </svg>
+                New Note
+              </a>
+              <a href="planner.html" class="quick-action-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="12" y1="5" x2="12" y2="19"/>
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+                Add Task
+              </a>
+              <a href="flashcards.html" class="quick-action-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                  <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                </svg>
+                New Flashcard
+              </a>
+              <button class="quick-action-btn" id="backupBtn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Backup Data
+              </button>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <h3>Upcoming Deadlines</h3>
+            <div id="upcomingDeadlines" class="deadlines-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal" id="pomodoroModal" role="dialog" aria-modal="true">
+    <div class="modal-content glass-card pomodoro-modal">
+      <div class="modal-header">
+        <h2>Study Timer</h2>
+        <button class="icon-btn" id="closePomodoroModal" aria-label="Close modal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="pomodoro-display">
+          <div class="timer-circle">
+            <svg class="timer-svg" viewBox="0 0 200 200">
+              <circle cx="100" cy="100" r="90" class="timer-bg"/>
+              <circle cx="100" cy="100" r="90" class="timer-progress" id="timerProgress"/>
+            </svg>
+            <div class="timer-text">
+              <span id="timerDisplay">25:00</span>
+              <span id="timerLabel">Focus Time</span>
+            </div>
+          </div>
+        </div>
+        <div class="pomodoro-controls">
+          <button class="btn btn-primary" id="startTimerBtn">Start</button>
+          <button class="btn btn-secondary" id="pauseTimerBtn" style="display: none;">Pause</button>
+          <button class="btn btn-secondary" id="resetTimerBtn">Reset</button>
+        </div>
+        <div class="pomodoro-settings">
+          <label>
+            <span>Focus Time (min)</span>
+            <input type="number" id="focusTime" value="25" min="1" max="60" class="input">
+          </label>
+          <label>
+            <span>Break Time (min)</span>
+            <input type="number" id="breakTime" value="5" min="1" max="30" class="input">
+          </label>
+        </div>
+        <div class="pomodoro-stats">
+          <div class="stat-item">
+            <span>Sessions Today</span>
+            <strong id="sessionsToday">0</strong>
+          </div>
+          <div class="stat-item">
+            <span>Total Time</span>
+            <strong id="totalTime">0h 0m</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-bottom">
+        <p>&copy; 2025 ScholarSync. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

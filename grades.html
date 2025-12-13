@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grades – ScholarSync</title>
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-universal" id="navbar">
+        <div class="container nav-content-universal">
+          <div class="nav-brand-section">
+            <a href="index.html" class="nav-brand-link">
+              <img src="assets/logo.svg" alt="ScholarSync Logo" class="logo">
+              <span class="brand">ScholarSync</span>
+            </a>
+          </div>
+      
+          <div class="nav-center-section">
+            <div class="nav-items-wrapper">
+              <div class="nav-item-pill">
+                <a href="dashboard.html" class="nav-pill-link" data-page="dashboard">
+                  <span>Dashboard</span>
+                </a>
+              </div>
+      
+              <div class="nav-item-pill">
+                <button class="nav-pill-btn" id="featuresDropdown">
+                  <span>Features</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" id="featuresMenu">
+                  <div class="dropdown-grid">
+                    <a href="notes.html" class="dropdown-item" data-page="notes">
+                      <div class="dropdown-icon blue">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                          <path d="M14 2v6h6M16 13H8m8 4H8m2-8H8"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Notes</strong>
+                        <span>Organize study notes</span>
+                      </div>
+                    </a>
+                    <a href="flashcards.html" class="dropdown-item" data-page="flashcards">
+                      <div class="dropdown-icon purple">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                          <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Flashcards</strong>
+                        <span>Study with cards</span>
+                      </div>
+                    </a>
+                    <a href="planner.html" class="dropdown-item" data-page="planner">
+                      <div class="dropdown-icon green">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                          <path d="M16 2v4M8 2v4M3 10h18"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Planner</strong>
+                        <span>Track tasks</span>
+                      </div>
+                    </a>
+                    <a href="grades.html" class="dropdown-item" data-page="grades">
+                      <div class="dropdown-icon orange">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Grades</strong>
+                        <span>Calculate GPA</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="nav-item-pill">
+                <button class="nav-pill-btn" id="toolsDropdown">
+                  <span>Tools</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" id="toolsMenu">
+                  <div class="dropdown-grid">
+                    <a href="tools.html" class="dropdown-item" data-page="tools">
+                      <div class="dropdown-icon cyan">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                          <circle cx="8.5" cy="8.5" r="1.5"/>
+                          <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>File Tools</strong>
+                        <span>Convert files</span>
+                      </div>
+                    </a>
+                    <a href="tutorials.html" class="dropdown-item" data-page="tutorials">
+                      <div class="dropdown-icon red">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <circle cx="12" cy="12" r="10"/>
+                          <polygon points="10 8 16 12 10 16 10 8"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Tutorials</strong>
+                        <span>Video lessons</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="nav-item-pill">
+                <a href="about.html" class="nav-pill-link" data-page="about">
+                  <span>About</span>
+                </a>
+              </div>
+            </div>
+          </div>
+      
+          <div class="nav-actions-section">
+            <button class="icon-btn-glass theme-toggle" id="themeToggle" aria-label="Toggle theme">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>
+              </svg>
+            </button>
+          </div>
+      
+          <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+      
+
+  <main class="grades-page">
+    <div class="container">
+      <div class="page-header">
+        <h1>CGPA Calculator</h1>
+        <button class="btn btn-primary" id="calculateBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          Calculate CGPA
+        </button>
+      </div>
+
+      <div class="grades-grid">
+        <div class="glass-card gpa-card">
+          <h2>Your CGPA</h2>
+          <div class="gpa-display">
+            <span class="gpa-value" id="gpaValue">0.00</span>
+            <span class="gpa-scale">/ 10.0</span>
+          </div>
+          <div class="gpa-stats">
+            <div class="gpa-stat">
+              <span>Credits Earned</span>
+              <strong id="earnedCredits">0</strong>
+            </div>
+            <div class="gpa-stat">
+              <span>Total Credits</span>
+              <strong id="totalCredits">0</strong>
+            </div>
+            <div class="gpa-stat">
+              <span>Percentage</span>
+              <strong id="percentageValue">0%</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card subjects-card">
+          <div class="subjects-header">
+            <h3>Add Subjects (Max 5)</h3>
+            <button class="btn btn-secondary btn-sm" id="clearAllBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"/>
+                <path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
+              </svg>
+              Clear All
+            </button>
+          </div>
+          <div id="subjectsList" class="subjects-list">
+          </div>
+          <div class="subjects-summary">
+            <div class="summary-item">
+              <span>Subjects Added:</span>
+              <strong id="subjectCount">0 / 5</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-bottom">
+        <p>&copy; 2025 ScholarSync. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/grades.js"></script>
+</body>
+</html>

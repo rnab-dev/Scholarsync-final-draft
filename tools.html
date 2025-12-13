@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Tools – ScholarSync</title>
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-universal" id="navbar">
+        <div class="container nav-content-universal">
+          <div class="nav-brand-section">
+            <a href="index.html" class="nav-brand-link">
+              <img src="assets/logo.svg" alt="ScholarSync Logo" class="logo">
+              <span class="brand">ScholarSync</span>
+            </a>
+          </div>
+      
+          <div class="nav-center-section">
+            <div class="nav-items-wrapper">
+              <div class="nav-item-pill">
+                <a href="dashboard.html" class="nav-pill-link" data-page="dashboard">
+                  <span>Dashboard</span>
+                </a>
+              </div>
+      
+              <div class="nav-item-pill">
+                <button class="nav-pill-btn" id="featuresDropdown">
+                  <span>Features</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" id="featuresMenu">
+                  <div class="dropdown-grid">
+                    <a href="notes.html" class="dropdown-item" data-page="notes">
+                      <div class="dropdown-icon blue">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                          <path d="M14 2v6h6M16 13H8m8 4H8m2-8H8"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Notes</strong>
+                        <span>Organize study notes</span>
+                      </div>
+                    </a>
+                    <a href="flashcards.html" class="dropdown-item" data-page="flashcards">
+                      <div class="dropdown-icon purple">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                          <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Flashcards</strong>
+                        <span>Study with cards</span>
+                      </div>
+                    </a>
+                    <a href="planner.html" class="dropdown-item" data-page="planner">
+                      <div class="dropdown-icon green">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                          <path d="M16 2v4M8 2v4M3 10h18"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Planner</strong>
+                        <span>Track tasks</span>
+                      </div>
+                    </a>
+                    <a href="grades.html" class="dropdown-item" data-page="grades">
+                      <div class="dropdown-icon orange">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Grades</strong>
+                        <span>Calculate GPA</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="nav-item-pill">
+                <button class="nav-pill-btn" id="toolsDropdown">
+                  <span>Tools</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" id="toolsMenu">
+                  <div class="dropdown-grid">
+                    <a href="tools.html" class="dropdown-item" data-page="tools">
+                      <div class="dropdown-icon cyan">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                          <circle cx="8.5" cy="8.5" r="1.5"/>
+                          <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>File Converter</strong>
+                        <span>Convert files</span>
+                      </div>
+                    </a>
+                    <a href="tutorials.html" class="dropdown-item" data-page="tutorials">
+                      <div class="dropdown-icon red">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <circle cx="12" cy="12" r="10"/>
+                          <polygon points="10 8 16 12 10 16 10 8"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Tutorials</strong>
+                        <span>Video lessons</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="nav-item-pill">
+                <a href="about.html" class="nav-pill-link" data-page="about">
+                  <span>About</span>
+                </a>
+              </div>
+            </div>
+          </div>
+      
+          <div class="nav-actions-section">
+            <button class="icon-btn-glass theme-toggle" id="themeToggle" aria-label="Toggle theme">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>
+              </svg>
+            </button>
+          </div>
+      
+          <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+      
+
+  <main class="tools-page">
+    <div class="container">
+      <div class="page-header">
+        <div>
+          <h1>File Converter</h1>
+          <p class="page-subtitle">Convert, compress, and manipulate your files</p>
+        </div>
+      </div>
+
+      <div class="tools-grid">
+        <!-- Image Converter -->
+        <div class="glass-card tool-card">
+          <div class="tool-header">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            <h3>Image Converter</h3>
+          </div>
+          <p>Convert images between JPG, PNG, WebP formats</p>
+          
+          <div class="tool-content">
+            <input type="file" id="imageConverterInput" accept="image/*" class="file-input">
+            <label for="imageConverterInput" class="file-label">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+              Choose Image
+            </label>
+            
+            <div id="imageConverterPreview" class="preview-area" style="display: none;">
+              <img id="imagePreviewImg" alt="Preview">
+              <div class="preview-info">
+                <span id="imageFileName"></span>
+                <span id="imageFileSize"></span>
+              </div>
+            </div>
+
+            <select id="imageConvertFormat" class="select-input">
+              <option value="jpeg">JPG/JPEG</option>
+              <option value="png">PNG</option>
+              <option value="webp">WebP</option>
+            </select>
+
+            <button class="btn btn-primary" id="convertImageBtn" disabled>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 4 23 10 17 10"/>
+                <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/>
+              </svg>
+              Convert Image
+            </button>
+          </div>
+        </div>
+
+        <!-- Image Compressor -->
+<div class="glass-card tool-card">
+  <div class="tool-header">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="16 16 12 12 8 16"/>
+      <line x1="12" y1="12" x2="12" y2="21"/>
+      <path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/>
+      <polyline points="16 16 12 12 8 16"/>
+    </svg>
+    <h3>Image Compressor</h3>
+  </div>
+  <p>Reduce image file size by quality or target size (perfect for govt exams)</p>
+  
+  <div class="tool-content">
+    <input type="file" id="imageCompressorInput" accept="image/*" class="file-input">
+    <label for="imageCompressorInput" class="file-label">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+        <polyline points="17 8 12 3 7 8"/>
+        <line x1="12" y1="3" x2="12" y2="15"/>
+      </svg>
+      Choose Image
+    </label>
+
+    <div id="compressorPreview" class="preview-area" style="display: none;">
+      <img id="compressorPreviewImg" alt="Preview">
+      <div class="preview-info">
+        <span id="compressorFileName"></span>
+        <span id="compressorFileSize"></span>
+      </div>
+    </div>
+
+    <div class="compression-mode-toggle">
+      <button class="mode-btn active" data-mode="quality" id="qualityModeBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"/>
+        </svg>
+        By Quality
+      </button>
+      <button class="mode-btn" data-mode="size" id="sizeModeBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+          <polyline points="7.5 4.21 12 6.81 16.5 4.21"/>
+        </svg>
+        By Size
+      </button>
+    </div>
+
+    <div id="qualityMode" class="compression-mode-content">
+      <div class="slider-group">
+        <label>Quality: <span id="qualityValue">80</span>%</label>
+        <input type="range" id="compressionQuality" min="10" max="100" value="80" class="slider">
+      </div>
+      <button class="btn btn-primary" id="compressImageBtn" disabled>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="16 16 12 12 8 16"/>
+          <line x1="12" y1="12" x2="12" y2="21"/>
+        </svg>
+        Compress by Quality
+      </button>
+    </div>
+
+    <div id="sizeMode" class="tool-content" style="display: none;">
+      <div class="size-input-group">
+        <div class="form-group">
+          <label for="targetSize">Target Size</label>
+          <input type="number" id="targetSize" class="input" placeholder="e.g., 50, 200" min="1">
+        </div>
+        <div class="form-group">
+          <label for="sizeUnit">Unit</label>
+          <select id="sizeUnit" class="select-input">
+            <option value="kb">KB</option>
+            <option value="mb">MB</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="preset-sizes">
+        <p class="preset-label">Common Exam Sizes:</p>
+        <div class="preset-buttons">
+          <button class="preset-btn" data-size="20">20 KB</button>
+          <button class="preset-btn" data-size="50">50 KB</button>
+          <button class="preset-btn" data-size="100">100 KB</button>
+          <button class="preset-btn" data-size="200">200 KB</button>
+          <button class="preset-btn" data-size="500">500 KB</button>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" id="compressBySizeBtn" disabled>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="16 16 12 12 8 16"/>
+          <line x1="12" y1="12" x2="12" y2="21"/>
+        </svg>
+        Compress to Target Size
+      </button>
+    </div>
+
+    <div id="compressionResult" class="compression-result" style="display: none;">
+      <div class="result-stats">
+        <div class="stat">
+          <span>Original</span>
+          <strong id="originalSize">-</strong>
+        </div>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+        <div class="stat">
+          <span>Compressed</span>
+          <strong id="compressedSize">-</strong>
+        </div>
+      </div>
+      <div class="savings">
+        Saved <strong id="savedPercentage">0</strong>%
+      </div>
+      <button class="btn btn-secondary btn-sm" id="downloadCompressedBtn" style="margin-top: 1rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download Compressed Image
+      </button>
+    </div>
+  </div>
+</div>
+
+
+        <!-- Images to PDF -->
+        <div class="glass-card tool-card">
+          <div class="tool-header">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+            <h3>Images to PDF</h3>
+          </div>
+          <p>Combine multiple images into a single PDF</p>
+          
+          <div class="tool-content">
+            <input type="file" id="imagesToPdfInput" accept="image/*" multiple class="file-input">
+            <label for="imagesToPdfInput" class="file-label">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+              Choose Images (Multiple)
+            </label>
+
+            <div id="pdfImagesList" class="images-list"></div>
+
+            <button class="btn btn-primary" id="generatePdfBtn" disabled>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+              Generate PDF
+            </button>
+          </div>
+        </div>
+
+        <div class="glass-card tool-card">
+          <div class="tool-header">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <line x1="3" y1="9" x2="21" y2="9"/>
+              <line x1="9" y1="21" x2="9" y2="9"/>
+            </svg>
+            <h3>Image Resizer</h3>
+          </div>
+          <p>Resize images to specific dimensions</p>
+          
+          <div class="tool-content">
+            <input type="file" id="imageResizerInput" accept="image/*" class="file-input">
+            <label for="imageResizerInput" class="file-label">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+              Choose Image
+            </label>
+
+            <div id="resizerPreview" class="preview-area" style="display: none;">
+              <img id="resizerPreviewImg" alt="Preview">
+              <div class="preview-info">
+                <span id="resizerFileName"></span>
+                <span id="resizerOriginalDim"></span>
+              </div>
+            </div>
+
+            <div class="dimension-inputs">
+              <div class="form-group">
+                <label for="resizeWidth">Width (px)</label>
+                <input type="number" id="resizeWidth" class="input" min="1" placeholder="Auto">
+              </div>
+              <div class="form-group">
+                <label for="resizeHeight">Height (px)</label>
+                <input type="number" id="resizeHeight" class="input" min="1" placeholder="Auto">
+              </div>
+            </div>
+
+            <label class="checkbox-label">
+              <input type="checkbox" id="maintainAspectRatio" checked>
+              <span>Maintain aspect ratio</span>
+            </label>
+
+            <button class="btn btn-primary" id="resizeImageBtn" disabled>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              </svg>
+              Resize Image
+            </button>
+          </div>
+        </div>
+
+        <div class="glass-card tool-card">
+          <div class="tool-header">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+              <path d="M14 2v6h6M16 13H8m8 4H8m2-8H8"/>
+            </svg>
+            <h3>Word Counter</h3>
+          </div>
+          <p>Count words, characters, sentences & paragraphs for essays and assignments</p>
+          
+          <div class="tool-content">
+            <textarea id="wordCounterInput" class="textarea" rows="8" placeholder="Paste or type your text here..."></textarea>
+            
+            <div class="word-counter-stats">
+              <div class="stat-item">
+                <div class="stat-value" id="wordCount">0</div>
+                <div class="stat-label">Words</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="charCount">0</div>
+                <div class="stat-label">Characters</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="charNoSpaceCount">0</div>
+                <div class="stat-label">No Spaces</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="sentenceCount">0</div>
+                <div class="stat-label">Sentences</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="paragraphCount">0</div>
+                <div class="stat-label">Paragraphs</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="readingTime">0</div>
+                <div class="stat-label">Min Read</div>
+              </div>
+            </div>
+
+            <button class="btn btn-secondary" id="clearTextBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
+              </svg>
+              Clear Text
+            </button>
+          </div>
+        </div>
+
+        <div class="glass-card tool-card">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6.13 1L6 16a2 2 0 002 2h15"/>
+              <path d="M1 6.13L16 6a2 2 0 012 2v15"/>
+            </svg>
+            <h3>Image Cropper</h3>
+          </div>
+          <p>Crop images to square or custom dimensions</p>
+          
+          <div class="tool-content">
+            <input type="file" id="imageCropperInput" accept="image/*" class="file-input">
+            <label for="imageCropperInput" class="file-label">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+              Choose Image
+            </label>
+
+            <div id="cropperPreview" class="preview-area" style="display: none;">
+              <canvas id="cropperCanvas"></canvas>
+            </div>
+
+            <select id="cropRatio" class="select-input">
+              <option value="square">Square (1:1)</option>
+              <option value="landscape">Landscape (16:9)</option>
+              <option value="portrait">Portrait (9:16)</option>
+              <option value="free">Free Form</option>
+            </select>
+
+            <button class="btn btn-primary" id="cropImageBtn" disabled>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6.13 1L6 16a2 2 0 002 2h15"/>
+              </svg>
+              Crop & Download
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-bottom">
+        <p>&copy; 2025 ScholarSync. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/tools.js"></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tools – ScholarSync</title>
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-universal" id="navbar">
+        <div class="container nav-content-universal">
+          <div class="nav-brand-section">
+            <a href="index.html" class="nav-brand-link">
+              <img src="assets/logo.svg" alt="ScholarSync Logo" class="logo">
+              <span class="brand">ScholarSync</span>
+            </a>
+          </div>
+      
+          <div class="nav-center-section">
+            <div class="nav-items-wrapper">
+              <div class="nav-item-pill">
+                <a href="dashboard.html" class="nav-pill-link" data-page="dashboard">
+                  <span>Dashboard</span>
+                </a>
+              </div>
+      
+              <div class="nav-item-pill">
+                <button class="nav-pill-btn" id="featuresDropdown">
+                  <span>Features</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" id="featuresMenu">
+                  <div class="dropdown-grid">
+                    <a href="notes.html" class="dropdown-item" data-page="notes">
+                      <div class="dropdown-icon blue">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                          <path d="M14 2v6h6M16 13H8m8 4H8m2-8H8"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Notes</strong>
+                        <span>Organize study notes</span>
+                      </div>
+                    </a>
+                    <a href="flashcards.html" class="dropdown-item" data-page="flashcards">
+                      <div class="dropdown-icon purple">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                          <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Flashcards</strong>
+                        <span>Study with cards</span>
+                      </div>
+                    </a>
+                    <a href="planner.html" class="dropdown-item" data-page="planner">
+                      <div class="dropdown-icon green">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                          <path d="M16 2v4M8 2v4M3 10h18"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Planner</strong>
+                        <span>Track tasks</span>
+                      </div>
+                    </a>
+                    <a href="grades.html" class="dropdown-item" data-page="grades">
+                      <div class="dropdown-icon orange">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Grades</strong>
+                        <span>Calculate GPA</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="nav-item-pill">
+                <button class="nav-pill-btn" id="toolsDropdown">
+                  <span>Tools</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" id="toolsMenu">
+                  <div class="dropdown-grid">
+                    <a href="tools.html" class="dropdown-item" data-page="tools">
+                      <div class="dropdown-icon cyan">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                          <circle cx="8.5" cy="8.5" r="1.5"/>
+                          <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>File Tools</strong>
+                        <span>Convert files</span>
+                      </div>
+                    </a>
+                    <a href="ai-tools.html" class="dropdown-item" data-page="ai-tools">
+                      <div class="dropdown-icon pink">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                          <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>AI Tools</strong>
+                        <span>Study assistant</span>
+                      </div>
+                    </a>
+                    <a href="tutorials.html" class="dropdown-item" data-page="tutorials">
+                      <div class="dropdown-icon red">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <circle cx="12" cy="12" r="10"/>
+                          <polygon points="10 8 16 12 10 16 10 8"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Tutorials</strong>
+                        <span>Video lessons</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="nav-item-pill">
+                <a href="about.html" class="nav-pill-link" data-page="about">
+                  <span>About</span>
+                </a>
+              </div>
+            </div>
+          </div>
+      
+          <div class="nav-actions-section">
+            <button class="icon-btn-glass theme-toggle" id="themeToggle" aria-label="Toggle theme">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>
+              </svg>
+            </button>
+          </div>
+      
+          <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+      
+
+  <main class="ai-tools-page">
+    <div class="container">
+      <div class="page-header">
+        <h1>AI Tools</h1>
+        <p class="page-subtitle">Intelligent study assistance powered by advanced algorithms</p>
+      </div>
+
+      <div class="ai-tools-grid">
+        <div class="glass-card ai-tool-card">
+          <h3>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            </svg>
+            Study Assistant
+          </h3>
+          <p>Ask questions about any topic and get detailed explanations</p>
+          <form class="ai-form" data-tool="study">
+            <textarea class="textarea" placeholder="Ask a question..." rows="3" required></textarea>
+            <button type="submit" class="btn btn-primary">Ask</button>
+          </form>
+          <div class="ai-output" data-output="study"></div>
+        </div>
+
+        <div class="glass-card ai-tool-card">
+          <h3>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 11l3 3L22 4"/>
+              <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+            </svg>
+            Quiz Generator
+          </h3>
+          <p>Generate practice quizzes on any subject</p>
+          <form class="ai-form" data-tool="quiz">
+            <input type="text" class="input" placeholder="Topic (e.g., Calculus)" required>
+            <select class="select-input">
+              <option value="5">5 questions</option>
+              <option value="10">10 questions</option>
+              <option value="15">15 questions</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Generate</button>
+          </form>
+          <div class="ai-output" data-output="quiz"></div>
+        </div>
+
+        <div class="glass-card ai-tool-card">
+          <h3>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+              ircle cx="9" cy="7" r="="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+            Career Helper
+          </h3>
+          <p>Get personalized career advice and pathways</p>
+          <form class="ai-form" data-tool="career">
+            <input type="text" class="input" placeholder="Your interests or field" required>
+            <input type="text" class="input" placeholder="Current level (e.g., student, graduate)" required>
+            <button type="submit" class="btn btn-primary">Get Advice</button>
+          </form>
+          <div class="ai-output" data-output="career"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-bottom">
+        <p>&copy; 2025 ScholarSync. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/ai.js"></script>
+</body>
+</html>

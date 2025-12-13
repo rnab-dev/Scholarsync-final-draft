@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScholarSync – Your All-in-One Academic Companion</title>
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="landing-page">
+  <nav class="navbar navbar-landing" id="navbar">
+    <div class="container nav-content-landing">
+      <div class="nav-brand-section">
+        <a href="index.html" class="nav-brand-link">
+          <img src="assets/logo.svg" alt="ScholarSync Logo" class="logo">
+          <span class="brand">ScholarSync</span>
+        </a>
+      </div>
+  
+      <div class="nav-center-section">
+        <div class="nav-items-wrapper">
+          <div class="nav-item-pill">
+            <button class="nav-pill-btn" id="featuresDropdown">
+              <span>Features</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="nav-dropdown-menu" id="featuresMenu">
+              <div class="dropdown-grid">
+                <a href="notes.html" class="dropdown-item">
+                  <div class="dropdown-icon blue">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                      <path d="M14 2v6h6M16 13H8m8 4H8m2-8H8"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <strong>Notes</strong>
+                    <span>Organize your study notes</span>
+                  </div>
+                </a>
+                <a href="flashcards.html" class="dropdown-item">
+                  <div class="dropdown-icon purple">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                      <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <strong>Flashcards</strong>
+                    <span>Study with spaced repetition</span>
+                  </div>
+                </a>
+                <a href="planner.html" class="dropdown-item">
+                  <div class="dropdown-icon green">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                      <path d="M16 2v4M8 2v4M3 10h18"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <strong>Planner</strong>
+                    <span>Track tasks and deadlines</span>
+                  </div>
+                </a>
+                <a href="grades.html" class="dropdown-item">
+                  <div class="dropdown-icon orange">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <strong>Grades</strong>
+                    <span>Calculate your GPA</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+  
+          <div class="nav-item-pill">
+            <button class="nav-pill-btn" id="toolsDropdown">
+              <span>Tools</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="nav-dropdown-menu" id="toolsMenu">
+              <div class="dropdown-grid">
+                <a href="tools.html" class="dropdown-item">
+                  <div class="dropdown-icon cyan">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <strong>File Tools</strong>
+                    <span>Convert & compress files</span>
+                  </div>
+                </a>
+                <a href="tutorials.html" class="dropdown-item">
+                  <div class="dropdown-icon red">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polygon points="10 8 16 12 10 16 10 8"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <strong>Tutorials</strong>
+                    <span>Video learning resources</span>
+                  </div>
+                </a>
+                <a href="exams.html" class="dropdown-item">
+                  <div class="dropdown-icon green">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <strong>Exam Portal</strong>
+                    <span>Govt exam info & docs</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+  
+          <div class="nav-item-pill">
+            <a href="about.html" class="nav-pill-link">
+              <span>About</span>
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="nav-actions-section">
+        <button class="icon-btn-glass theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>
+          </svg>
+        </button>
+        <a href="exams.html" class="btn-glass btn-exam-glass">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          <span>Exams</span>
+        </a>
+        <a href="dashboard.html" class="btn-glass btn-primary-glass">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+      </div>
+  
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+  
+      
+
+  <main>
+    <section class="hero hero-landing">
+      <div class="hero-particles" id="particles"></div>
+      <div class="container hero-content">
+        <div class="hero-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          Your Academic Success Platform
+        </div>
+        <h1 class="hero-title-large" id="heroTitle">
+          Level Up Your<br>Student Game.
+        </h1>
+        
+        <p class="hero-subtitle-large">The ultimate productivity suite for students. Organize notes, track grades, manage tasks, all in one beautiful platform.</p>
+        <div class="hero-actions-large">
+          <a href="dashboard.html" class="btn btn-primary btn-large">
+            Get Started
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+          <button class="btn btn-secondary btn-large" id="watchDemoBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polygon points="10 8 16 12 10 16 10 8"/>
+            </svg>
+            Watch Demo
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>All-in-One</strong>
+            <span>Complete toolkit</span>
+          </div>
+          <div class="hero-stat">
+            <strong>100% Free</strong>
+            <span>No hidden costs</span>
+          </div>
+          <div class="hero-stat">
+            <strong>Offline Ready</strong>
+            <span>Works everywhere</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll-indicator">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="12" y1="5" x2="12" y2="19"/>
+          <polyline points="19 12 12 19 5 12"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="features features-landing" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Features</span>
+          <h2 class="section-title-large">Everything you need to excel</h2>
+          <p class="section-subtitle">Powerful tools designed specifically for students</p>
+        </div>
+
+        <div class="feature-grid-large">
+          <div class="feature-card-large glass-card" data-aos="fade-up">
+            <div class="feature-card-header">
+              <div class="feature-icon-large blue">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                  <path d="M14 2v6h6M16 13H8m8 4H8m2-8H8"/>
+                </svg>
+              </div>
+              <h3>Smart Notes</h3>
+            </div>
+            <p>Organize notes by subject with powerful search, tagging, and markdown support. Export, share, and access from anywhere.</p>
+            <ul class="feature-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Rich text editing
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Subject organization
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Quick search
+              </li>
+            </ul>
+            <a href="notes.html" class="feature-link-large">
+              Explore Notes
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="feature-card-large glass-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-card-header">
+              <div class="feature-icon-large purple">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                  <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                </svg>
+              </div>
+              <h3>Flashcards</h3>
+            </div>
+            <p>Create digital flashcards and study with spaced repetition. Perfect for memorization and exam prep.</p>
+            <ul class="feature-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Study mode
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Subject filtering
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Shuffle cards
+              </li>
+            </ul>
+            <a href="flashcards.html" class="feature-link-large">
+              Start Studying
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="feature-card-large glass-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-card-header">
+              <div class="feature-icon-large green">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <path d="M16 2v4M8 2v4M3 10h18"/>
+                </svg>
+              </div>
+              <h3>Task Planner</h3>
+            </div>
+            <p>Manage deadlines, assignments, and projects with an intuitive calendar and progress tracking.</p>
+            <ul class="feature-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Calendar view
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Priority levels
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Progress bars
+              </li>
+            </ul>
+            <a href="planner.html" class="feature-link-large">
+              Plan Your Week
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="feature-card-large glass-card" data-aos="fade-up">
+            <div class="feature-card-header">
+              <div class="feature-icon-large orange">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+                </svg>
+              </div>
+              <h3>GPA Calculator</h3>
+            </div>
+            <p>Track your courses and grades. Calculate semester and cumulative GPA automatically.</p>
+            <ul class="feature-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Auto calculation
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Course tracking
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Credit management
+              </li>
+            </ul>
+            <a href="grades.html" class="feature-link-large">
+              Calculate GPA
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="feature-card-large glass-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-card-header">
+              <div class="feature-icon-large cyan">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <polyline points="21 15 16 10 5 21"/>
+                </svg>
+              </div>
+              <h3>File Converter</h3>
+            </div>
+            <p>Convert images, compress files, create PDFs, and more—all in your browser.</p>
+            <ul class="feature-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Image converter
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Compression
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                PDF creation
+              </li>
+            </ul>
+            <a href="tools.html" class="feature-link-large">
+              Use Tools
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section-large">
+      <div class="container">
+        <div class="glass-card cta-card-large">
+          <div class="cta-content-large">
+            <span class="cta-badge">Get Started Today</span>
+            <h2>Ready to transform your study routine?</h2>
+            <p>Join thousands of students who are already excelling with ScholarSync.</p>
+            <div class="cta-actions">
+              <a href="dashboard.html" class="btn btn-primary btn-large">
+                Start Now
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </a>
+              <a href="about.html" class="btn btn-secondary btn-large">Learn More</a>
+            </div>
+          </div>
+          <div class="cta-visual">
+            <div class="floating-card" onclick="window.location.href='dashboard.html'" title="Go to Dashboard">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer footer-landing">
+    <div class="container footer-content">
+    ƒ  <div class="footer-top">
+        <div class="footer-col">
+          <div class="footer-brand">
+            <img src="assets/logo.svg" alt="ScholarSync Logo" class="logo">
+            <span class="brand">ScholarSync</span>
+          </div>
+          <p class="footer-description">The ultimate productivity platform for students worldwide.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="notes.html">Notes</a>
+          <a href="flashcards.html">Flashcards</a>
+          <a href="planner.html">Planner</a>
+          <a href="grades.html">Grades</a>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <a href="tools.html">File Tools</a>
+          <a href="tutorials.html">Tutorials</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#terms">Terms</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ScholarSync. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#status">Status</a>
+          <a href="#docs">Documentation</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="video-modal" id="videoModal">
+    <div class="video-modal-backdrop" id="videoModalBackdrop"></div>
+    <div class="video-modal-content">
+      <button class="video-modal-close" id="closeVideoModal">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <div class="video-wrapper">
+        <iframe 
+          id="demoVideo"
+          width="100%" 
+          height="100%" 
+          src="" 
+          title="ScholarSync Demo" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/landing.js"></script>
+</body>
+</html>
