@@ -53,13 +53,19 @@ flashcardForm.addEventListener('submit', (e) => {
 });
 
 function saveFlashcard() {
+  const existingCard = currentFlashcardId ? flashcards.find(f => f.id === currentFlashcardId) : null;
   const flashcard = {
     id: currentFlashcardId || Date.now().toString(),
     subject: document.getElementById('flashcardSubject').value.trim(),
     question: document.getElementById('flashcardQuestion').value.trim(),
     answer: document.getElementById('flashcardAnswer').value.trim(),
-    createdAt: currentFlashcardId ? flashcards.find(f => f.id === currentFlashcardId).createdAt : new Date().toISOString(),
-    updatedAt: new Date().toISOString()
+    createdAt: existingCard ? existingCard.createdAt : new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    // Spaced repetition properties
+    interval: existingCard ? existingCard.interval : 0,
+    repetitions: existingCard ? existingCard.repetitions : 0,
+    easeFactor: existingCard ? existingCard.easeFactor : 2.5,
+    nextReview: existingCard ? existingCard.nextReview : new Date().toISOString()
   };
 
   if (currentFlashcardId) {
@@ -164,14 +170,27 @@ subjectFilter.addEventListener('change', () => {
 
 studyModeBtn.addEventListener('click', () => {
   const filter = subjectFilter.value;
-  studyCards = filter ? flashcards.filter(f => f.subject === filter) : [...flashcards];
+  const now = new Date();
+  
+  // Filter cards that are due for review
+  studyCards = flashcards.filter(f => {
+    const matchesSubject = !filter || f.subject === filter;
+    const isDue = !f.nextReview || new Date(f.nextReview) <= now;
+    return matchesSubject && isDue;
+  });
   
   if (studyCards.length === 0) {
-    alert('No flashcards to study!');
+    const totalCards = filter ? flashcards.filter(f => f.subject === filter).length : flashcards.length;
+    if (totalCards === 0) {
+      alert('No flashcards to study!');
+    } else {
+      alert('No cards due for review! Come back later.');
+    }
     return;
   }
   
-  studyCards.sort(() => Math.random() - 0.5);
+  // Sort by next review date (oldest first)
+  studyCards.sort((a, b) => new Date(a.nextReview || 0) - new Date(b.nextReview || 0));
   studyIndex = 0;
   showStudyCard();
   studyModal.classList.add('active');
@@ -189,13 +208,134 @@ studyModal.addEventListener('click', (e) => {
   }
 });
 
+// SM-2 Spaced Repetition Algorithm
+function calculateNextReview(card, quality) {
+  // quality: 0=Again (<1min), 1=Hard (<10min), 2=Good (1+ days), 3=Easy (6+ days)
+  let interval = card.interval || 0;
+  let repetitions = card.repetitions || 0;
+  let easeFactor = card.easeFactor || 2.5;
+  
+  const now = Date.now();
+  let nextReview;
+  
+  if (quality === 0) {
+    // Again - show in 1 minute
+    repetitions = 0;
+    interval = 0;
+    nextReview = now + (1 * 60 * 1000);
+  } else if (quality === 1) {
+    // Hard - show in 10 minutes
+    repetitions = 0;
+    interval = 0;
+    nextReview = now + (10 * 60 * 1000);
+  } else if (quality === 2) {
+    // Good - standard progression
+    if (repetitions === 0) {
+      interval = 1;
+    } else if (repetitions === 1) {
+      interval = 6;
+    } else {
+      interval = Math.round(interval * easeFactor);
+    }
+    repetitions++;
+    nextReview = now + (interval * 24 * 60 * 60 * 1000);
+  } else {
+    // Easy - longer progression
+    if (repetitions === 0) {
+      interval = 6;
+    } else if (repetitions === 1) {
+      interval = 15;
+    } else {
+      interval = Math.round(interval * easeFactor * 1.3);
+    }
+    repetitions++;
+    nextReview = now + (interval * 24 * 60 * 60 * 1000);
+  }
+  
+  // Update ease factor based on quality
+  easeFactor = easeFactor + (0.1 - (3 - quality) * (0.08 + (3 - quality) * 0.02));
+  easeFactor = Math.max(1.3, Math.min(2.5, easeFactor));
+  
+  return {
+    interval,
+    repetitions,
+    easeFactor,
+    nextReview
+  };
+}
+
+function rateCard(quality) {
+  if (studyCards.length === 0) return;
+  
+  const card = studyCards[studyIndex];
+  const cardIndex = flashcards.findIndex(f => f.id === card.id);
+  
+  if (cardIndex !== -1) {
+    // Update card with new spaced repetition data
+    const srData = calculateNextReview(card, quality);
+    flashcards[cardIndex] = {
+      ...flashcards[cardIndex],
+      ...srData,
+      lastReviewed: Date.now()
+    };
+    
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(flashcards));
+    
+    // Visual feedback
+    const flashDisplay = document.getElementById('flashcardDisplay');
+    const ratingNames = ['Again', 'Hard', 'Good', 'Easy'];
+    const intervals = [
+      '< 1 minute',
+      '< 10 minutes', 
+      srData.interval === 1 ? '1 day' : `${srData.interval} days`,
+      srData.interval + ' days'
+    ];
+    
+    // Flash animation
+    flashDisplay.style.transition = 'opacity 0.2s';
+    flashDisplay.style.opacity = '0.3';
+    setTimeout(() => {
+      flashDisplay.style.opacity = '1';
+    }, 200);
+    
+    // Remove current card from study session
+    studyCards.splice(studyIndex, 1);
+    
+    // Check if study session is complete
+    if (studyCards.length === 0) {
+      setTimeout(() => {
+        alert(`Study session complete! Great job! 🎉\n\nCard will be reviewed: ${intervals[quality]}`);
+        studyModal.classList.remove('active');
+        flashcardInner.classList.remove('flipped');
+        renderFlashcards();
+        updateDueCount();
+      }, 300);
+      return;
+    }
+    
+    // Adjust index if needed
+    if (studyIndex >= studyCards.length) {
+      studyIndex = studyCards.length - 1;
+    }
+    
+    showStudyCard();
+  }
+}
+
 function showStudyCard() {
   if (studyCards.length === 0) return;
   
   const card = studyCards[studyIndex];
   document.getElementById('studyQuestion').textContent = card.question;
   document.getElementById('studyAnswer').textContent = card.answer;
-  studyProgress.textContent = `${studyIndex + 1} / ${studyCards.length}`;
+  
+  // Calculate ease percentage for display
+  const easeFactor = card.easeFactor || 2.5;
+  const easePercent = Math.round(((easeFactor - 1.3) / (2.5 - 1.3)) * 100);
+  
+  // Show study progress with review info
+  studyProgress.textContent = `Card ${studyIndex + 1} of ${studyCards.length} • Reviews: ${card.repetitions || 0} • Ease: ${easePercent}%`;
+  
   flashcardInner.classList.remove('flipped');
   
   prevCardBtn.disabled = studyIndex === 0;
@@ -204,6 +344,29 @@ function showStudyCard() {
 
 flipCardBtn.addEventListener('click', () => {
   flashcardInner.classList.toggle('flipped');
+});
+
+// Spaced repetition rating buttons
+const againBtn = document.getElementById('againBtn');
+const hardBtn = document.getElementById('hardBtn');
+const goodBtn = document.getElementById('goodBtn');
+const easyBtn = document.getElementById('easyBtn');
+
+if (againBtn) againBtn.addEventListener('click', () => {
+  console.log('Rating: Again (0)');
+  rateCard(0);
+});
+if (hardBtn) hardBtn.addEventListener('click', () => {
+  console.log('Rating: Hard (1)');
+  rateCard(1);
+});
+if (goodBtn) goodBtn.addEventListener('click', () => {
+  console.log('Rating: Good (2)');
+  rateCard(2);
+});
+if (easyBtn) easyBtn.addEventListener('click', () => {
+  console.log('Rating: Easy (3)');
+  rateCard(3);
 });
 
 prevCardBtn.addEventListener('click', () => {
@@ -224,5 +387,25 @@ flashcardDisplay.addEventListener('click', () => {
   flashcardInner.classList.toggle('flipped');
 });
 
+// Show cards due today count on page load
+function updateDueCount() {
+  const now = new Date();
+  const dueCount = flashcards.filter(f => !f.nextReview || new Date(f.nextReview) <= now).length;
+  const studyBtn = document.getElementById('studyModeBtn');
+  if (studyBtn && dueCount > 0) {
+    studyBtn.innerHTML = `
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+      </svg>
+      Study (${dueCount} due)
+    `;
+  }
+}
+
 renderFlashcards();
 renderSubjects();
+updateDueCount();
+
+// Update due count every minute
+setInterval(updateDueCount, 60000);
