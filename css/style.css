@@ -215,6 +215,7 @@
   .hero-content {
     max-width: 800px;
     margin: 0 auto;
+    text-align: center;
   }
   
   .hero-title {
@@ -2757,6 +2758,11 @@
     font-weight: 500;
     margin-bottom: 2rem;
   }
+
+  .hero-badge svg {
+    flex-shrink: 0;
+    vertical-align: middle;
+  }
   
   .hero-title-large {
     font-size: 4.5rem;
@@ -3445,7 +3451,7 @@
     transform-style: preserve-3d;
   }
   
-  .team-card-flip.flipped .team-card-inner {
+  .team-card-flip:hover .team-card-inner {
     transform: rotateY(180deg);
   }
   
@@ -3533,25 +3539,10 @@
     border-top: 1px solid var(--glass-border);
     color: var(--muted);
     font-size: 0.85rem;
-    width: 100%;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .flip-indicator:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--accent);
   }
   
   .flip-indicator svg {
     opacity: 0.7;
-    transition: transform 0.3s ease;
-  }
-
-  .flip-indicator:hover svg {
-    opacity: 1;
-    transform: rotate(180deg);
   }
   
   /* Team Card Back */
